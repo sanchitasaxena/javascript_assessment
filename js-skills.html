@@ -61,6 +61,8 @@
       margin-right: 1em;
     }
   </style>
+
+<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
 
@@ -127,13 +129,14 @@
 <script>
   "use strict";
   //gets button hmtl to change but not the stuff in the italic tag--so annoying
-  var message = document.getElementById('change-hello-to-goodbye-button');
+  var message = document.getElementById('message-to-change');
+  var button = document.getElementById('change-hello-to-goodbye-button');
 
    function helloGoodbye(evt) {
-   message.innerHTML = "goodbye";
+   message.innerHTML= "goodbye";
   }
 
-  message.addEventListener('click', helloGoodbye);
+  button.addEventListener('click', helloGoodbye);
 
 </script>
 
@@ -165,16 +168,13 @@
 <script>
   "use strict";
 
-  var button = document.getElementById('prevent-form-submission-button');
+  var button = document.getElementById('prevent-form-submission-form');
 
-  function alertClick(evt) {
-    if (confirm("Are you sure you want to submit this form?"))
-    alert("Just an Alert, Please!");
-    console.dir(evt);
-  }
+  button.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    alert("Form submission cancelled.");
+  });
 
-  button.addEventListener('click', alertClick);
-  
 </script>
 
 <div class="hint">
@@ -206,36 +206,16 @@
 <script>
   "use strict";
 
-//  Here's a stub of a function you can use!
-var msg = "Porcupines are cute";
-
 function reverseString(msg) {
-  var newMsg = '';
-  for (var i = msg.length - 1; i>= 0; i--)
-      newMsg += msg[i];
-  alert(newMsg);
+  var msg = "Porcupines are cute"
+  alert(msg.split("").reverse().join(""));
 }
 
-  var button = document.getElementById('reverse-string-button');
+var button = document.getElementById('reverse-string-button');
 
-  button.addEventListener('click', reverseString);
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+button.addEventListener('click', reverseString);
 
-// Here's a stub of event stuff you could use
-//
-
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
 </script>
-
-
-
-
 
 
 <h2>jQuery</h2>
@@ -255,7 +235,14 @@ function reverseString(msg) {
 
 <script>
   "use strict";
-  // code here for above problem
+  var button = $(".tricky-to-find");
+
+  function alertMe(evt) {
+    alert('Pop-up Please!');
+  }
+
+ button.click(alertMe);
+
 </script>
 
 <div class="hint">
@@ -283,7 +270,12 @@ function reverseString(msg) {
 
 <script>
   "use strict";
-  // put your code here
+  var myImage = $('#kittenz-rule');
+
+  myImage.on('dblclick', function() {
+      myImage.attr('src', 'https://s-media-cache-ak0.pinimg.com/736x/fb/d8/59/fbd859c5111f3e02ccd5e449dfb357d8.jpg');
+  });
+
 </script>
 
 <div class="hint">
@@ -317,7 +309,20 @@ function reverseString(msg) {
 
 <script>
   "use strict";
-  // put your code here
+  // put your code here 'http://www.psych2go.net/wp-content/uploads/2015/06/porcupine.jpg'
+  var myImage = $('#cute-porcupine-image');
+  // var button = $('#make-a-porcupine');
+  // myImage.attr('src', 'http://mytrial.typepad.com/.a/6a0147e199a17d970b0153906b3209970b-pi');
+  // button.on('click', function () { 
+  //   setTimeout(function() { myImage.attr('display: inline').fadeIn('slow'); }, 1000);
+  // });
+  
+  myImage.removeAttr('display: inline').delay(1000).fadeIn('slow');
+  
+  
+// fadeIn(), fadeOut()
+
+
 </script>
 
 <div class="hint">
@@ -392,6 +397,19 @@ function reverseString(msg) {
 <script>
   "use strict";
   // put your code here
+
+  // var myNumber = Math.floor(Math.random() * 100);
+
+  // function guessMyNumber(guess) {
+
+  //   if (guess < myNumber) {
+  //     alert('too low!');
+  //   } else if (guess > myNumber) {
+  //     alert('too high!');
+  //   } else {
+  //     alert('you got it right!');
+  //   }
+  // }
 </script>
 
 <div class="hint">
